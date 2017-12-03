@@ -16,8 +16,8 @@ import java.util.Arrays;
  * @author alexrazinkov
  */
 public class FileReader {
-    public static String fromFile(final String filePath) throws IOException {
+    public static byte[] fromFile(final String filePath) throws IOException {
         final byte[] bytes = Files.readAllBytes(Paths.get(filePath));
-        return new String(Arrays.copyOf(bytes, bytes.length - 1), StandardCharsets.UTF_8);
+        return Arrays.copyOf(bytes, bytes.length - 1);
     }
 }

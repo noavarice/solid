@@ -22,7 +22,7 @@ public class FileReaderTest {
         System.out.println("fromFile");
         String filePath = "/home/alexrazinkov/test";
         String expResult = "testtest";
-        String result = FileReader.fromFile(filePath);
+        String result = new String(FileReader.fromFile(filePath));
         assertEquals(expResult, result);
     }
     

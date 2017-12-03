@@ -5,8 +5,9 @@
  */
 package src;
 
-import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+import java.io.OutputStream;
+
 
 /**
  *
@@ -14,7 +15,7 @@ import java.nio.charset.StandardCharsets;
  */
 public class Streamer {
     
-    public static void toStream(final PrintStream s, final String content) {
-        s.append(content);
+    public static void toStream(final OutputStream s, final byte[] content) throws IOException {
+        s.write(content);
     }
 }
