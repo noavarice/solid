@@ -6,8 +6,10 @@
 package src;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 /**
  *
@@ -15,6 +17,7 @@ import java.nio.file.Paths;
  */
 public class FileReader {
     public static String fromFile(final String filePath) throws IOException {
-        return new String(Files.readAllBytes(Paths.get(filePath)));
+        final byte[] bytes = Files.readAllBytes(Paths.get(filePath));
+        return new String(Arrays.copyOf(bytes, bytes.length - 1), StandardCharsets.UTF_8);
     }
 }

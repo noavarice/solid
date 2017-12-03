@@ -21,7 +21,7 @@ public class SingleResponsibility_Good {
      */
     public static void main(String[] args) throws IOException {
         PrintStream ps = new PrintStream(System.out);
-        final String filePath = "/home/alexrazinkov/.zshrc";
+        final String filePath = "/home/alexrazinkov/test";
         Streamer.toStream(ps, FileReader.fromFile(filePath));
     }
     
