@@ -5,6 +5,7 @@
  */
 package src;
 
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,12 +19,25 @@ public class FileReaderTest {
      * Test of fromFile method, of class FileReader.
      */
     @Test
-    public void testFromFile() throws Exception {
-        System.out.println("fromFile");
+    public void testFromFile_Works() throws Exception {
+        System.out.println("fromFile_works");
         String filePath = "/home/alexrazinkov/test";
         String expResult = "testtest";
         String result = new String(FileReader.fromFile(filePath));
         assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFromFile_Fails() {
+        System.out.println("fromFile_fails");
+        String filePath = "/home/alexrazinkov/test1"; // not exists
+        try {
+            String result = new String(FileReader.fromFile(filePath));
+        } catch (IOException e) {
+            return;
+        }
+        
+        fail("Cannot read from non-existing file");
     }
     
 }
