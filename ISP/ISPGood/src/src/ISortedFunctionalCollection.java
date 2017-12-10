@@ -13,11 +13,13 @@ import java.util.function.Predicate;
  *
  * @author alexrazinkov
  */
-public interface IFunctionalCollection<T> {
+public interface ISortedFunctionalCollection<T extends Comparable> {
 
-    <R> IFunctionalCollection<R> map(final Function<T, R> f);
+    void addSorted(final T item);
     
-    <T> IFunctionalCollection<T> filter(final Predicate<T> f);
+    <R extends Comparable> ISortedFunctionalCollection<R> map(final Function<T, R> f);
+    
+    ISortedFunctionalCollection<T> filter(final Predicate<T> f);
     
     void forEach(final Consumer<T> f);
 }

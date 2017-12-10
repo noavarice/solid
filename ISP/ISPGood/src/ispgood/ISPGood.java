@@ -6,6 +6,7 @@
 package ispgood;
 
 import src.impl.SortedFunctionalList;
+import src.impl.SortedFunctionalListBad;
 
 /**
  *
@@ -17,16 +18,28 @@ public class ISPGood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        final SortedFunctionalList<Integer> l = new SortedFunctionalList<Integer>();
-        l.addSorted(5);
-        l.addSorted(2);
-        l.addSorted(4);
-        l.addSorted(6);
-        for (int i = 0; i < l.size(); i++) {
-            System.out.println(l.get(i));
+        System.out.println("Good");
+        final SortedFunctionalList<Integer> good = new SortedFunctionalList<Integer>();
+        good.addSorted(5);
+        good.addSorted(2);
+        good.addSorted(4);
+        good.addSorted(6);
+        for (int i = 0; i < good.size(); i++) {
+            System.out.println(good.get(i));
         }
         
-        l.map(i -> (int)i * 10).filter(i -> (int)i < 33).forEach(System.out::println);
+        good.map(i -> (int)i * 10).filter(i -> (int)i < 33).forEach(System.out::println);
+        
+        System.out.println("Bad");
+        final SortedFunctionalListBad<Integer> bad = new SortedFunctionalListBad<Integer>();
+        bad.addSorted(5);
+        bad.addSorted(2);
+        bad.addSorted(4);
+        bad.addSorted(6);
+        for (int i = 0; i < bad.size(); i++) {
+            System.out.println(bad.get(i));
+        }
+        
+        bad.map(i -> (int)i * 10).filter(i -> (int)i < 33).forEach(System.out::println);
     }
-    
 }
