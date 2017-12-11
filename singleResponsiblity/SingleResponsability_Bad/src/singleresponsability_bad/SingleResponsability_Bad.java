@@ -5,8 +5,11 @@
  */
 package singleresponsability_bad;
 
-import java.io.IOException;
-import src.FilePrinter;
+import src.Customer;
+import src.ICustomerProvider;
+import src.OrderBad;
+import src.OrderGood;
+import src.impl.CustomerProviderImpl;
 
 /**
  *
@@ -17,8 +20,12 @@ public class SingleResponsability_Bad {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        FilePrinter.printFile("/home/alexrazinkov/test");
+    public static void main(String[] args) {
+        final ICustomerProvider provider = new CustomerProviderImpl();
+        OrderBad.setCustomerProvider(provider);
+        final OrderBad orderBad = new OrderBad(1, "salt", 10);
+        final Customer customer = provider.getCustomer(1);
+        final OrderGood orderGood = new OrderGood(customer, "water", 5);
     }
     
 }
