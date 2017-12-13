@@ -21,7 +21,6 @@ public class FightManager {
             w2.applyDamage(w1.getDamage());
             w1.auxiliaryActions();
             swap(w1, w2);
-            
         } while (w1.isAlive() && w1.isAlive());
         return w1.isAlive();
     }
